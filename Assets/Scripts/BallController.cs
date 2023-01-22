@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    public float speed = 10f; // public variable to set the speed of the ball
 
-    public float speed = 10;
-    private Rigidbody body;
+    private Rigidbody2D rb; // reference to the Rigidbody2D component of the ball
 
     void Start()
     {
-        body = GetComponent<Rigidbody>();
-        Launch();
-    }
+        rb = GetComponent<Rigidbody2D>(); // get the reference to the Rigidbody2D component
 
-    
-    void Launch()
-    {
-        float x = Random.Range(0, 2) == 0 ? -1 : 1;
-        float z = Random.Range(0, 2) == 0 ? -1 : 1;
-        body.velocity = new Vector3(speed * x, 0, speed * z);
+        // Generate random angle in radians between 0 and 2*PI
+        float randomAngle = UnityEngine.Random.Range(0f, 2f * Mathf.PI);
+
+        // Convert angle to a Vector2
+        Vector2 randomDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle));
+
+        // Set the ball's velocity with the random direction and the desired speed
+        rb.velocity = randomDirection * speed;
     }
 }
-
