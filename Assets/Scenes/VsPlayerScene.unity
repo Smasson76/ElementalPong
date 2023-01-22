@@ -867,6 +867,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 820632158500442997, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
+      propertyPath: m_Size.x
+      value: 1.021951
+      objectReference: {fileID: 0}
+    - target: {fileID: 820632158500442997, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
+      propertyPath: m_Size.y
+      value: 6.2965393
+      objectReference: {fileID: 0}
+    - target: {fileID: 820632158500442997, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0030005872
+      objectReference: {fileID: 0}
+    - target: {fileID: 820632158500442997, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
+      propertyPath: m_Center.y
+      value: -0.035734177
+      objectReference: {fileID: 0}
     - target: {fileID: 820632158500442998, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
       propertyPath: m_Name
       value: Paddle1
@@ -1096,6 +1112,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 820632158500442997, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0336399
+      objectReference: {fileID: 0}
+    - target: {fileID: 820632158500442997, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
+      propertyPath: m_Size.y
+      value: 4.893541
+      objectReference: {fileID: 0}
+    - target: {fileID: 820632158500442997, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
+      propertyPath: m_Center.x
+      value: 0.00003799796
+      objectReference: {fileID: 0}
+    - target: {fileID: 820632158500442997, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
+      propertyPath: m_Center.y
+      value: 0.0062079728
+      objectReference: {fileID: 0}
     - target: {fileID: 820632158500442998, guid: 93dcf4ff22078f041b63d6830823fa28, type: 3}
       propertyPath: m_Name
       value: Paddle2
