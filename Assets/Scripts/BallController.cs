@@ -6,11 +6,11 @@ public class BallController : MonoBehaviour
 {
     public float speed = 10f; // public variable to set the speed of the ball
 
-    private Rigidbody2D rb; // reference to the Rigidbody2D component of the ball
+    private Rigidbody rb; // reference to the Rigidbody2D component of the ball
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // get the reference to the Rigidbody2D component
+        rb = GetComponent<Rigidbody>(); // get the reference to the Rigidbody2D component
 
         // Generate random angle in radians between 0 and 2*PI
         float randomAngle = UnityEngine.Random.Range(0f, 2f * Mathf.PI);
