@@ -1318,6 +1318,10 @@ PrefabInstance:
       value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 4321443254811250462, guid: 43635389627acd544a53df25e9a7d957, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321443254811250462, guid: 43635389627acd544a53df25e9a7d957, type: 3}
       propertyPath: bounciness
       value: 1
       objectReference: {fileID: 0}

@@ -18,15 +18,20 @@ public class BallController : MonoBehaviour {
         rb.velocity = Random.insideUnitSphere * speed;
     }
 
-    private void OnCollisionEnter(Collision collision) {
-        // Get the normal of the collision surface
-        Vector3 normal = collision.contacts[0].normal;
-
-        // Reflect the ball's velocity off the collision surface
-        rb.velocity = Vector3.Reflect(rb.velocity, normal) * bounciness;
-
-        Debug.Log("collision");
-
+    void Update() {
+        Vector3 v = rb.velocity;
+        if (v.magnitude < 0.1f) {
+            v = Vector3.up * speed;
+        }
+        if (Mathf.Abs(Vector3.Dot(v.normalized, Vector3.right)) > 0.9f) {
+            v.y *= 1.1f;
+        }
+        rb.velocity = v.normalized * speed;
     }
 
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.contacts.Length > 0) {
+            transform.up = collision.contacts[0].normal;
+        }
+    }
 }
