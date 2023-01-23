@@ -8,12 +8,13 @@ public class GameManager : MonoBehaviour {
     
     public static GameManager instance;     //Creating a singleton of this object
 
-    [SerializeField]
-    public int player1Score, player2Score;
-    public float countdownTimer;
+    [Header("PUBLIC UI VARIABLES")]
+    public int player1Score, player2Score;  //keep player scores
+    public float countdownTimer;            //game start timer
 
-    public Text player1ScoreText, player2ScoreText;
-    public Text countdownTimerText;
+    [Header("PUBLIC UI TEXTS")]
+    public Text player1ScoreText, player2ScoreText; //player score texts
+    public Text countdownTimerText;                 //countdown timer texts
 
     public bool gameStarted;
 
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour {
         if (!gameStarted) {
             BallController.instance.transform.position = new Vector3(0, 0.3114f, 0);
             countdownTimer -= Time.deltaTime;
-            countdownTimerText.text = " " + countdownTimer.ToString("#.##");;
+            countdownTimerText.text = " " + countdownTimer.ToString("#");;
 
             if (countdownTimer <= 0) {
                 gameStarted = true;

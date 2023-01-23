@@ -50,6 +50,7 @@ public class BallController : MonoBehaviour {
 
         if (collision.gameObject.CompareTag("Player")) {
             speed += speedMultiplier;
+            rb.AddForce(0, 0, speed);
         }
     }
 
