@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour {
 
-     public static BallController instance;     //Creating a singleton of this object
+    public static BallController instance;     //Creating a singleton of this object
 
+    public float originalSpeed = 10f;
     public float speed = 10f; // public variable to set the speed of the ball
+    public float speedMultiplier = 0.1f;
 
     private Rigidbody rb; // reference to the Rigidbody component of the ball
 
@@ -20,10 +22,9 @@ public class BallController : MonoBehaviour {
 		else {
 			Destroy(gameObject);
 		}
-
+        
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>(); 
-        //rb.velocity = Random.insideUnitSphere * speed;
 
         Vector3 velocity = new Vector3(0.0f, 0.0f, Random.Range(-6.0f, -1.0f));
         rb.AddForce(velocity * speed);
@@ -46,14 +47,20 @@ public class BallController : MonoBehaviour {
         if (collision.contacts.Length > 0) {
             transform.up = collision.contacts[0].normal;
         }
+
+        if (collision.gameObject.CompareTag("Player")) {
+            speed += speedMultiplier;
+        }
     }
 
     void OnTriggerEnter(Collider c) {
         if (c.gameObject.CompareTag("LeftBorder")) {
             GameManager.instance.Player1Scored();
+            speed = originalSpeed;
         }
         if (c.gameObject.CompareTag("RightBorder")) {
             GameManager.instance.Player2Scored();
+            speed = originalSpeed;
         }
     }
 }
