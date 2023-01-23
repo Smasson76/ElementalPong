@@ -23,7 +23,10 @@ public class BallController : MonoBehaviour {
 
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>(); 
-        rb.velocity = Random.insideUnitSphere * speed;
+        //rb.velocity = Random.insideUnitSphere * speed;
+
+        Vector3 velocity = new Vector3(0.0f, 0.0f, Random.Range(-6.0f, -1.0f));
+        rb.AddForce(velocity * speed);
     }
 
     void Update() {
