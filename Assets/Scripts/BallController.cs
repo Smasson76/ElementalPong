@@ -23,17 +23,11 @@ public class BallController : MonoBehaviour {
 
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>(); 
-    }
-
-    public void ResetBallRB() {
-        // Set the ball's velocity to a random vector inside the unit sphere, multiplied by the speed
         rb.velocity = Random.insideUnitSphere * speed;
     }
 
     void Update() {
-        Debug.Log("Update");
         if (GameManager.instance.gameStarted == true) {
-            Debug.Log("game started = true");
             Vector3 v = rb.velocity;
             if (v.magnitude < 0.1f) {
                 v = Vector3.up * speed;
@@ -42,10 +36,6 @@ public class BallController : MonoBehaviour {
                 v.y *= 1.1f;
             }
             rb.velocity = v.normalized * speed;
-        }
-        else {
-            rb.velocity = Vector3.zero;
-            Debug.Log("game started = false");
         }
     }
 

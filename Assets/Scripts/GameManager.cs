@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     public int player1Score, player2Score;
+    public float countdownTimer;
 
     public Text player1ScoreText, player2ScoreText;
+    public Text countdownTimerText;
 
     public bool gameStarted;
 
@@ -29,31 +31,39 @@ public class GameManager : MonoBehaviour {
         player2Score = 0;
         player1ScoreText.text = " " + player1Score;
         player2ScoreText.text = " " + player2Score;
+        
+        countdownTimer = 4f;
+        countdownTimerText.text = " ";
+
         gameStarted = false;
     }
 
-    void Start() {
-        StartCoroutine(StartBall());
-    }
+    void Update() {
+        if (!gameStarted) {
+            BallController.instance.transform.position = new Vector3(0, 0.3114f, 0);
+            countdownTimer -= Time.deltaTime;
+            countdownTimerText.text = " " + countdownTimer.ToString("#.##");;
 
+            if (countdownTimer <= 0) {
+                gameStarted = true;
+            }
+        }
+        else {
+            countdownTimerText.text = " ";
+        }
+    }
 
     public void Player1Scored() {
         player1Score++;
         player1ScoreText.text = " " + player1Score;
-        StartCoroutine(StartBall());
+        gameStarted = false;
+        countdownTimer = 4f;
     }
 
     public void Player2Scored() {
         player2Score++;
         player2ScoreText.text = " " + player2Score;
-        StartCoroutine(StartBall());
-    }
-
-    public IEnumerator StartBall() {
         gameStarted = false;
-        BallController.instance.transform.position = new Vector3(0, 0.3114f, 0);
-        yield return new WaitForSeconds(4f);
-        BallController.instance.ResetBallRB();
-        gameStarted = true;
+        countdownTimer = 4f;
     }
 }
