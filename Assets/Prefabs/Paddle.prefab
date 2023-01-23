@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 820632158500443000}
   m_Layer: 0
   m_Name: Paddle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.021951, y: 6.2965393, z: 1}
+  m_Center: {x: -0.0030005872, y: -0.035734177, z: 0}
 --- !u!114 &820632158500443000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,4 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6601456937e792348a3c6cfa07dcef3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.04
+  speed: 0.02
+  playerNum: 0
+  Movement:
+  - Horizontal
+  - Horizontal2
