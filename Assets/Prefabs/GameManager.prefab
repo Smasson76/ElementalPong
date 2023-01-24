@@ -44,3 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9338e7371c3bf4dbfd824e1ccc75b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1Score: 0
+  player2Score: 0
+  maxScore: 5
+  countdownTimer: 0
+  player1ScoreText: {fileID: 0}
+  player2ScoreText: {fileID: 0}
+  multipurposeText: {fileID: 0}
+  gameStarted: 0

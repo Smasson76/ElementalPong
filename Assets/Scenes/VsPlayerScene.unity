@@ -662,6 +662,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7279830858115131375, guid: b75da6f885bd6cd4e8423e3256ac0652, type: 3}
+      propertyPath: maxScore
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279830858115131375, guid: b75da6f885bd6cd4e8423e3256ac0652, type: 3}
+      propertyPath: multipurposeText
+      value: 
+      objectReference: {fileID: 1899027308}
+    - target: {fileID: 7279830858115131375, guid: b75da6f885bd6cd4e8423e3256ac0652, type: 3}
       propertyPath: player1ScoreText
       value: 
       objectReference: {fileID: 1649779562}
@@ -669,10 +677,6 @@ PrefabInstance:
       propertyPath: player2ScoreText
       value: 
       objectReference: {fileID: 1556106770}
-    - target: {fileID: 7279830858115131375, guid: b75da6f885bd6cd4e8423e3256ac0652, type: 3}
-      propertyPath: countdownTimerText
-      value: 
-      objectReference: {fileID: 1899027308}
     - target: {fileID: 7963480819367685546, guid: b75da6f885bd6cd4e8423e3256ac0652, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1219,7 +1223,7 @@ GameObject:
   - component: {fileID: 1899027309}
   - component: {fileID: 1899027308}
   m_Layer: 5
-  m_Name: CountdowntimerText
+  m_Name: MultipurposeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1242,8 +1246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 947, y: 17}
-  m_SizeDelta: {x: 426.445, y: 239.72}
+  m_AnchoredPosition: {x: 941, y: 41}
+  m_SizeDelta: {x: 1164.9795, y: 403.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899027308
 MonoBehaviour:

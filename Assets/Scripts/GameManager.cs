@@ -11,11 +11,12 @@ public class GameManager : MonoBehaviour
 
     [Header("PUBLIC UI VARIABLES")]
     public int player1Score, player2Score;  //keep player scores
+    public int maxScore;
     public float countdownTimer;            //game start timer
 
     [Header("PUBLIC UI TEXTS")]
     public Text player1ScoreText, player2ScoreText; //player score texts
-    public Text countdownTimerText;                 //countdown timer texts
+    public Text multipurposeText;                 //Text for countdown and winner
 
     public bool gameStarted;
 
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         player2ScoreText.text = " " + player2Score;
 
         countdownTimer = 4f;
-        countdownTimerText.text = " ";
+        multipurposeText.text = " ";
 
         gameStarted = false;
     }
@@ -49,16 +50,13 @@ public class GameManager : MonoBehaviour
         {
             BallController.instance.transform.position = new Vector3(0, 0.3114f, 0);
             countdownTimer -= Time.deltaTime;
-            countdownTimerText.text = " " + countdownTimer.ToString("#"); ;
+            multipurposeText.text = " " + countdownTimer.ToString("#");
+            multipurposeText.fontSize = 200;
 
             if (countdownTimer <= 0)
             {
                 gameStarted = true;
             }
-        }
-        else
-        {
-            countdownTimerText.text = " ";
         }
     }
 
@@ -66,7 +64,7 @@ public class GameManager : MonoBehaviour
     {
         player1Score++;
         player1ScoreText.text = " " + player1Score;
-        if (player1Score >= 10)
+        if (player1Score >= maxScore)
         {
             EndGame("Player 1 Wins!");
             return;
@@ -79,7 +77,7 @@ public class GameManager : MonoBehaviour
     {
         player2Score++;
         player2ScoreText.text = " " + player2Score;
-        if (player2Score >= 10)
+        if (player2Score >= maxScore)
         {
             EndGame("Player 2 Wins!");
             return;
@@ -89,8 +87,9 @@ public class GameManager : MonoBehaviour
     }
     void EndGame(string winner)
     {
-        winnerText.text = winner;
-        winnerText.enabled = true;
+        multipurposeText.text = winner;
+        multipurposeText.fontSize = 100;
+        multipurposeText.enabled = true;
         Invoke("LoadMainMenu", 3f);
     }
 
