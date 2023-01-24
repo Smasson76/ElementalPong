@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
-    
+public class GameManager : MonoBehaviour
+{
+
     public static GameManager instance;     //Creating a singleton of this object
 
     [Header("PUBLIC UI VARIABLES")]
@@ -18,53 +19,77 @@ public class GameManager : MonoBehaviour {
 
     public bool gameStarted;
 
-    void Awake() {
+    void Awake()
+    {
         //If this Gamemanager does not exist, set this instance and don't destroy, else destroy
-        if (instance == null) {
-			instance = this;
+        if (instance == null)
+        {
+            instance = this;
             DontDestroyOnLoad(gameObject);
-		}
-		else {
-			Destroy(gameObject);
-		}
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         player1Score = 0;
         player2Score = 0;
         player1ScoreText.text = " " + player1Score;
         player2ScoreText.text = " " + player2Score;
-        
+
         countdownTimer = 4f;
         countdownTimerText.text = " ";
 
         gameStarted = false;
     }
 
-    void Update() {
-        if (!gameStarted) {
+    void Update()
+    {
+        if (!gameStarted)
+        {
             BallController.instance.transform.position = new Vector3(0, 0.3114f, 0);
             countdownTimer -= Time.deltaTime;
-            countdownTimerText.text = " " + countdownTimer.ToString("#");;
+            countdownTimerText.text = " " + countdownTimer.ToString("#"); ;
 
-            if (countdownTimer <= 0) {
+            if (countdownTimer <= 0)
+            {
                 gameStarted = true;
             }
         }
-        else {
+        else
+        {
             countdownTimerText.text = " ";
         }
     }
 
-    public void Player1Scored() {
+    public void Player1Scored()
+    {
         player1Score++;
         player1ScoreText.text = " " + player1Score;
+        if (player1Score >= 10)
+        {
+            EndGame("Player 1 Wins!");
+            return;
+        }
         gameStarted = false;
         countdownTimer = 4f;
     }
 
-    public void Player2Scored() {
+    public void Player2Scored()
+    {
         player2Score++;
         player2ScoreText.text = " " + player2Score;
+        if (player2Score >= 10)
+        {
+            EndGame("Player 2 Wins!");
+            return;
+        }
         gameStarted = false;
         countdownTimer = 4f;
     }
+    void EndGame(string winner)
+    {
+        Debug.Log(winner);
+    }
+
 }
