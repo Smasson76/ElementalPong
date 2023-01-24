@@ -89,7 +89,16 @@ public class GameManager : MonoBehaviour
     }
     void EndGame(string winner)
     {
-        Debug.Log(winner);
+        winnerText.text = winner;
+        winnerText.enabled = true;
+        Invoke("LoadMainMenu", 3f);
     }
+
+    void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    
+    
 
 }
