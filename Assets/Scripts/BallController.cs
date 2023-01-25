@@ -13,9 +13,7 @@ public class BallController : MonoBehaviour {
     private Rigidbody rb; // reference to the Rigidbody component of the ball
 
     public float bounciness = 1f; // reference to the Rigidbody component
-
-    public AudioSource audioSource;
-    public AudioClip ballHitSound;
+    
 
     void Awake() {
         if (instance == null) {
@@ -57,7 +55,7 @@ public class BallController : MonoBehaviour {
             rb.AddForce(0, 0, speed);
         }
         // Play the sound effect
-        AudioSource.PlayClipAtPoint(ballHitSound, transform.position);
+//        AudioSource.PlayClipAtPoint(AudioManager.instance.ballHitSound, transform.position);
         if (collision.gameObject.CompareTag("Player"))
         {
             speed += speedMultiplier;

@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     public bool gameStarted;
 
+    public AudioSource audioSource;
+
     void Awake()
     {
         //If this Gamemanager does not exist, set this instance and don't destroy, else destroy
