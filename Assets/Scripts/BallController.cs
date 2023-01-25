@@ -48,7 +48,15 @@ public class BallController : MonoBehaviour {
             transform.up = collision.contacts[0].normal;
         }
 
-        if (collision.gameObject.CompareTag("Player")) {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            speed += speedMultiplier;
+            rb.AddForce(0, 0, speed);
+        }
+        // Play the sound effect
+        AudioSource.PlayClipAtPoint(ballHitSound, transform.position);
+        if (collision.gameObject.CompareTag("Player"))
+        {
             speed += speedMultiplier;
             rb.AddForce(0, 0, speed);
         }
