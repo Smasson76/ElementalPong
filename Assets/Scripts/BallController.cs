@@ -14,6 +14,9 @@ public class BallController : MonoBehaviour {
 
     public float bounciness = 1f; // reference to the Rigidbody component
 
+    public AudioSource audioSource;
+    public AudioClip ballHitSound;
+
     void Awake() {
         if (instance == null) {
 			instance = this;

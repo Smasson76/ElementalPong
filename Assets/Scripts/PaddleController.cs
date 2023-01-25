@@ -44,7 +44,7 @@ public class PaddleController : MonoBehaviour {
         //Player 1 movement
         if (playerNum == 1) {
             if (axisX >= 0.1f) {
-            anim.SetBool("isLeft", true);
+                anim.SetBool("isLeft", true);
             }
             else {
                 anim.SetBool("isLeft", false);
