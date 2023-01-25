@@ -10,13 +10,6 @@ public class MainMenuController : MonoBehaviour {
     public Button vsAIButton;
     public Button vsHumanOnlineButton;
 
-    private void Start()
-    {
-        vsHumanButton.onClick.AddListener(VsPlayer);
-        vsAIButton.onClick.AddListener(VsCpu);
-        vsHumanOnlineButton.onClick.AddListener(OnlinePlay);
-    }
-
     public void VsCpu() {
         //Do later
     }
